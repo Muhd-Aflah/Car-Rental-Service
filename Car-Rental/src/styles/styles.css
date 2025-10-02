@@ -1,6 +1,5 @@
 /* Hero Section */
 .hero {
-  background: url("/src/assets/images/banner.png") center/cover no-repeat;
   height: 70vh;
   display: flex;
   justify-content: center;
@@ -135,6 +134,29 @@
 }
 
 /* Navbar */
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;            
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;  
+  letter-spacing: 1px;         
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #232323; 
+}
+
+.logo:hover {
+  transform: scale(1.05);     
+  transition: transform 0.3s ease;
+}
+
 .navbar-car {
   position: sticky;
   top: 0;
@@ -143,10 +165,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 15px 25px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ffffff;
   z-index: 1000;
   box-sizing: border-box;
 }
@@ -218,57 +240,128 @@
 }
 
 /* ========== RESPONSIVE DESIGN ========== */
-/* Hide desktop buttons on mobile */
+/* Default: Desktop */
+.desktop-only {
+  display: flex;
+  gap: 12px;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
-  .nav-btns {
-    display: none;
+  /* Show hamburger on mobile */
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #222;
   }
 
   .nav-links {
     position: absolute;
     top: 70px;
-    right: 0;
+    left: 0;
+    width: 100%;
     background: white;
     flex-direction: column;
-    width: 220px;
-    padding: 20px;
-    border-left: 1px solid #eee;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
     border-bottom: 1px solid #eee;
     display: none;
-    gap: 15px;
+    z-index: 999;
+    text-align: center;
   }
 
   .nav-links.open {
     display: flex;
   }
 
-  .menu-toggle {
-    display: block;
-  }
-
-  /* ✅ Mobile buttons inside dropdown */
-  .mobile-btns {
-    display: flex;
+  /* Mobile buttons centered */
+  .mobile-only {
+    display: flex !important;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
     margin-top: 15px;
+    width: 100%;
   }
 
-  .mobile-btns button {
-    width: 100%; /* full width buttons */
+  .mobile-only .login-btn,
+  .mobile-only .signup-btn {
+    width: 80%;
+    max-width: 250px;
+    text-align: center;
+  }
+
+  /* Hide desktop buttons */
+  .desktop-only {
+    display: none !important;
   }
 }
 
-
 /* Hero  */
+
 .hero {
-  height: 100vh;
-  /* background: url("/src/assets/banner.png") no-repeat center center/cover; */
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full height */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: bdrgb(255, 255, 255);
-  padding: 20px;
-  position: relative;
+  overflow: hidden;
+
+/* background: url("/src/assets/car-hero.png") no-repeat center center/cover; */
 }
+
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* crop instead of stretching */
+  object-position: center;
+}
+
+/* Hero Content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem); /* responsive heading */
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin: 10px 0 20px;
+}
+
+.hero-content button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #ff9800;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-content button:hover {
+  background: #e68900;
+}
+
+

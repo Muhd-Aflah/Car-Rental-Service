@@ -2,40 +2,45 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/styles.css";
 
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="navbar-car">
-      {/* Logo */}
-      <div className="logo">🚗 CarRental</div>
-
-      {/* Hamburger Button */}
-      <div className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? "✖" : "☰"}
+      {/* logo */}
+      <div className="logo">
+        <div className="logo">🚗 CarRental</div>
       </div>
 
-      {/* Nav Links */}
+      {/* hamburger (mobile) */}
+      <button
+        className="menu-toggle"
+        onClick={() => setIsOpen((s) => !s)}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isOpen}
+      >
+        <span className="hamburger">{isOpen ? "✖" : "☰"}</span>
+      </button>
+
+      {/* links + mobile buttons */}
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/cars">Cars</Link></li>
         <li><Link to="/booking">Booking</Link></li>
         <li><Link to="/contact">Contact</Link></li>
 
-        {/* ✅ Mobile Buttons (inside dropdown) */}
-        <li className="mobile-btns">
+        {/* mobile-only - placed as a list item so it renders properly inside UL */}
+        <li className="mobile-only nav-btns">
           <button className="login-btn">Login</button>
           <button className="signup-btn">Sign Up</button>
         </li>
       </ul>
 
-      {/* Desktop Buttons */}
-      <div className="nav-btns">
+      {/* desktop buttons */}
+      <div className="nav-btns desktop-only">
         <button className="login-btn">Login</button>
         <button className="signup-btn">Sign Up</button>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
