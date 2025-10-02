@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Toyota Corolla",
+    "price": 50,
+    "type": "Sedan",
+    "image": "/src/assets/images/car1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Honda Civic",
+    "price": 60,
+    "type": "Sedan",
+    "image": "/src/assets/images/car2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Ford Explorer",
+    "price": 90,
+    "type": "SUV",
+    "image": "/src/assets/images/car3.jpg"
+  }
+]
