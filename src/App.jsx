@@ -7,7 +7,6 @@ import CarsPage from "./Pages/CarsPage";
 import ContactPage from "./Pages/ContactPage";
 import BookingPage from "./Pages/BookingPage";
 
-
 function App() {
   return (
     <Router>
