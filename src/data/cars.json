@@ -19,5 +19,12 @@
     "price": 90,
     "type": "SUV",
     "image": "/src/assets/images/car3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Toyota Fortuner",
+    "price": 180,
+    "type": "SUV",
+    "image": "/src/assets/images/car3.jpg"
   }
 ]

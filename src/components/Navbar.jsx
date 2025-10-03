@@ -26,7 +26,6 @@ export default function Navbar() {
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/cars">Cars</Link></li>
-        <li><Link to="/booking">Booking</Link></li>
         <li><Link to="/contact">Contact</Link></li>
 
         {/* mobile-only - placed as a list item so it renders properly inside UL */}
