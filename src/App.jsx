@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./Pages/HomePage";
 import CarsPage from "./Pages/CarsPage";
 import ContactPage from "./Pages/ContactPage";
-import BookingPage from "./pages/BookingPage";
+import BookingPage from "./pages/Bookingpage";
 
 function App() {
   return (
