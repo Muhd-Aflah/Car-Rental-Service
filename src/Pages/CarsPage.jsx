@@ -1,5 +1,5 @@
 import React from "react";
-import CarItem from "../components/CarItem"; // <-- import CarItem
+import CarItem from "../components/CarItem"; 
 import "../styles/styles.css";
 
 const CarsPage = () => {

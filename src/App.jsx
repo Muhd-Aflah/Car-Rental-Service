@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./Pages/HomePage";
 import CarsPage from "./Pages/CarsPage";
 import ContactPage from "./Pages/ContactPage";
-import BookingPage from "./Pages/BookingPage"; 
+import BookingPage from "./pages/BookingPage";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/cars" element={<CarsPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/booking" element={<BookingPage />} /> {/* ✅ FIXED */}
+        <Route path="/booking" element={<BookingPage />} />
       </Routes>
     </Router>
   );

@@ -5,8 +5,8 @@ function CarItem({ car }) {
   const navigate = useNavigate();
 
   const handleBooking = () => {
-    console.log("👉 Button clicked for car:", car); // ✅ check if click works
-    navigate("/booking", { state: { car } }); // pass car info
+    console.log("👉 Button clicked for car:", car); 
+    navigate("/booking", { state: { car } }); 
   };
 
   return (
