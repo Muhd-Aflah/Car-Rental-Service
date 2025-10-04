@@ -1,16 +1,23 @@
 import React from "react";
-import CarItem from "./CarItem.jsx";
-import cars from "../data/cars.json";
 import CarItem from "./CarItem";
+import "../styles/styles.css";
+function CarList({ cars, wishlist, toggleWishlist }) {
+  if (!cars || cars.length === 0) {
+    return <p>No cars available.</p>;
+  }
 
-function CarList({ cars }) {
-  if (!cars.length) return <p>No cars found.</p>;
   return (
-    <div className="car-grid">
-      {cars.map((car) => <CarItem key={car.id} car={car} />)}
+    <div className="car-list">
+      {cars.map((car) => (
+        <CarItem
+          key={car.id}
+          car={car}
+          wishlist={wishlist}
+          toggleWishlist={toggleWishlist}
+        />
+      ))}
     </div>
   );
 }
 
 export default CarList;
-

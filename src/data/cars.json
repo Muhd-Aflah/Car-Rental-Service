@@ -4,27 +4,56 @@
     "name": "Toyota Corolla",
     "price": 50,
     "type": "Sedan",
-    "image": "/src/assets/images/car1.jpg"
+    "image": "/images/car1.avif"
   },
   {
     "id": 2,
     "name": "Honda Civic",
     "price": 60,
     "type": "Sedan",
-    "image": "/src/assets/images/car2.jpg"
+    "image": "/images/car2.webp"
   },
   {
     "id": 3,
-    "name": "Ford Explorer",
+    "name": "Ford Endeavour",
     "price": 90,
     "type": "SUV",
-    "image": "/src/assets/images/car3.jpg"
+    "image": "/images/car3.webp"
   },
   {
     "id": 4,
     "name": "Toyota Fortuner",
     "price": 180,
     "type": "SUV",
-    "image": "/src/assets/images/car3.jpg"
+    "image": "/images/car4.png"
+  },
+  {
+    "id": 5,
+    "name": "BMW-M5",
+    "price": 250,
+    "type": "Sedan",
+    "image": "/images/car5.png"
+  },
+   {
+    "id": 6,
+    "name": "Hyundai Creta",
+    "price": 70,
+    "type": "SUV",
+    "image": "/images/car6.png"
+  },
+  {
+    "id": 7,
+    "name": "Mahindra XUV700",
+    "price": 110,
+    "type": "SUV",
+    "image": "/images/car7.png"
+  },
+  {
+    "id": 8,
+    "name": "BMW-Series-5",
+    "price": 280,
+    "type": "Sedan",
+    "image": "/images/car8.png"
   }
+
 ]

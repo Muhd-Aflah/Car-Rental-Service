@@ -1,25 +1,65 @@
-import React from "react";
-import CarItem from "../components/CarItem"; 
-import "../styles/styles.css";
+import React, { useState, useEffect } from "react";
+import CarList from "../components/CarList";
+import carsData from "../data/cars.json";
 
-const CarsPage = () => {
-  const cars = [
-    { id: 1, name: "Toyota Corolla", price: 50, image: "/src/assets/images/Toyota-Corolla.avif" },
-    { id: 2, name: "Honda Civic", price: 60, image: "/src/assets/images/Honda-Civic.webp" },
-    { id: 3, name: "Ford Endeavour", price: 90, image: "/src/assets/images/Ford-Endevour.webp" },
-    { id: 4, name: "BMW 5 Series", price: 120, image: "/src/assets/images/BMW-5series.avif" }
-  ];
+function CarsPage() {
+  const [showWishlist, setShowWishlist] = useState(false);
+  const [wishlist, setWishlist] = useState([]);
+
+  // Load wishlist once
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("wishlist")) || [];
+    setWishlist(saved);
+  }, []);
+
+  // Toggle wishlist instantly
+  const handleWishlistChange = (id) => {
+    let updated;
+    if (wishlist.includes(id)) {
+      updated = wishlist.filter((carId) => carId !== id);
+    } else {
+      updated = [...wishlist, id];
+    }
+    setWishlist(updated);
+    localStorage.setItem("wishlist", JSON.stringify(updated));
+  };
+
+  // Show wishlist or all cars
+  const displayedCars = showWishlist
+    ? carsData.filter((car) => wishlist.includes(car.id))
+    : carsData;
+
+  // ✅ handle toggle + reset view properly
+  const toggleShowWishlist = () => {
+    setShowWishlist((prev) => !prev);
+  };
 
   return (
     <div className="cars-page">
       <h2>Available Cars</h2>
-      <div className="car-grid">
-        {cars.map(car => (
-          <CarItem key={car.id} car={car} />  
-        ))}
-      </div>
+
+      <button
+        onClick={toggleShowWishlist}
+        style={{
+          marginBottom: "1rem",
+          padding: "8px 16px",
+          borderRadius: "8px",
+          cursor: "pointer",
+          backgroundColor: showWishlist ? "#ff6464" : "#007bff",
+          color: "#fff",
+          border: "none",
+        }}
+      >
+        {showWishlist ? "Show All Cars" : "Show Wishlist Only"}
+      </button>
+
+      <CarList
+        cars={displayedCars}
+        wishlist={wishlist}
+        toggleWishlist={handleWishlistChange}
+      />
     </div>
   );
-};
+}
 
 export default CarsPage;

@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function CarItem({ car }) {
+function CarItem({ car, wishlist, toggleWishlist }) {
   const navigate = useNavigate();
+  const isSaved = wishlist.includes(car.id);
 
   const handleBooking = () => {
-    console.log("👉 Button clicked for car:", car); 
-    navigate("/booking", { state: { car } }); 
+    navigate("/booking", { state: { car } });
   };
 
   return (
@@ -14,9 +14,18 @@ function CarItem({ car }) {
       <img src={car.image} alt={car.name} />
       <h3>{car.name}</h3>
       <p>${car.price}/day</p>
+
       <button onClick={handleBooking}>Book Now</button>
+
+      <button
+        onClick={() => toggleWishlist(car.id)}
+        className={isSaved ? "added" : ""}
+      >
+        {isSaved ? "❤️ Added" : "🤍 Add to Wishlist"}
+      </button>
     </div>
   );
 }
 
 export default CarItem;
+
