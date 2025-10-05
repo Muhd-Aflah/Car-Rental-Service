@@ -34,7 +34,7 @@
     "type": "Sedan",
     "image": "/images/car5.png"
   },
-   {
+  {
     "id": 6,
     "name": "Hyundai Creta",
     "price": 70,
@@ -50,10 +50,93 @@
   },
   {
     "id": 8,
-    "name": "BMW-Series-5",
+    "name": "BMW Series 5",
     "price": 280,
     "type": "Sedan",
     "image": "/images/car8.png"
+  },
+  {
+    "id": 9,
+    "name": "Audi A6",
+    "price": 260,
+    "type": "Sedan",
+    "image": "/images/car9.png"
+  },
+  {
+    "id": 10,
+    "name": "Mercedes-Benz GLC",
+    "price": 320,
+    "type": "SUV",
+    "image": "/images/car10.png"
+  },
+  {
+    "id": 11,
+    "name": "Kia Seltos",
+    "price": 85,
+    "type": "SUV",
+    "image": "/images/car11.png"
+  },
+  {
+    "id": 12,
+    "name": "Nissan Altima",
+    "price": 75,
+    "type": "Sedan",
+    "image": "/images/car12.png"
+  },
+  {
+    "id": 13,
+    "name": "Jeep Compass",
+    "price": 100,
+    "type": "SUV",
+    "image": "/images/car13.png"
+  },
+  {
+    "id": 14,
+    "name": "Tesla Model 3",
+    "price": 350,
+    "type": "Sedan",
+    "image": "/images/car14.png"
+  },
+  {
+    "id": 15,
+    "name": "Range Rover Sport",
+    "price": 400,
+    "type": "SUV",
+    "image": "/images/car15.png"
+  },
+  {
+    "id": 16,
+    "name": "Suzuki Swift",
+    "price": 45,
+    "type": "Hatchback",
+    "image": "/images/car16.png"
+  },
+  {
+    "id": 17,
+    "name": "Hyundai i20",
+    "price": 55,
+    "type": "Hatchback",
+    "image": "/images/car17.png"
+  },
+  {
+    "id": 18,
+    "name": "Tata Harrier",
+    "price": 120,
+    "type": "SUV",
+    "image": "/images/car18.png"
+  },
+  {
+    "id": 19,
+    "name": "Maruti Baleno",
+    "price": 50,
+    "type": "Hatchback",
+    "image": "/images/car19.png"
+  },
+  {
+    "id": 20,
+    "name": "Skoda Octavia",
+    "price": 90,
+    "type": "Sedan",
+    "image": "/images/car20.png"
   }
-
 ]
