@@ -1,4 +1,3 @@
-// src/Pages/WishlistPage.jsx
 import React, { useState, useEffect } from "react";
 const [wishlist, setWishlist] = useState([]);
 import carsData from "../data/cars.json";
@@ -7,20 +6,17 @@ import "../styles/styles.css";
 export default function WishlistPage() {
   const [wishlist, setWishlist] = useState([]);
 
-  // Load wishlist from localStorage when page loads
   useEffect(() => {
     const savedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     setWishlist(savedWishlist);
   }, []);
 
-  // Remove a car from wishlist
   const removeFromWishlist = (id) => {
     const updated = wishlist.filter((carId) => carId !== id);
     setWishlist(updated);
     localStorage.setItem("wishlist", JSON.stringify(updated));
   };
 
-  // Filter wishlist cars from main data
   const wishlistCars = carsData.filter((car) => wishlist.includes(car.id));
 
   return (

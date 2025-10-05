@@ -6,13 +6,11 @@ function CarsPage() {
   const [showWishlist, setShowWishlist] = useState(false);
   const [wishlist, setWishlist] = useState([]);
 
-  // Load wishlist once
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("wishlist")) || [];
     setWishlist(saved);
   }, []);
 
-  // Toggle wishlist instantly
   const handleWishlistChange = (id) => {
     let updated;
     if (wishlist.includes(id)) {
@@ -24,12 +22,10 @@ function CarsPage() {
     localStorage.setItem("wishlist", JSON.stringify(updated));
   };
 
-  // Show wishlist or all cars
   const displayedCars = showWishlist
     ? carsData.filter((car) => wishlist.includes(car.id))
     : carsData;
 
-  // ✅ handle toggle + reset view properly
   const toggleShowWishlist = () => {
     setShowWishlist((prev) => !prev);
   };

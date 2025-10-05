@@ -25,10 +25,11 @@ export default function Navbar() {
       {/* links + mobile buttons */}
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
         <li><Link to="/cars">Cars</Link></li>
         <li><Link to="/contact">Contact</Link></li>
 
-        {/* mobile-only - placed as a list item so it renders properly inside UL */}
+        {/* mobile-only  */}
         <li className="mobile-only nav-btns">
           <button className="login-btn">Login</button>
           <button className="signup-btn">Sign Up</button>

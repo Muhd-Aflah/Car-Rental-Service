@@ -4,8 +4,9 @@ import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar";
 import HomePage from "./Pages/HomePage";
 import CarsPage from "./Pages/CarsPage";
-import ContactPage from "./Pages/ContactPage";
 import BookingPage from "./Pages/BookingPage";
+import AboutPage from "./Pages/AboutPage";
+import ContactPage from "./Pages/ContactPage";
 
 function App() {
   return (
@@ -14,9 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cars" element={<CarsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
         <Route path="/booking" element={<BookingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 }
