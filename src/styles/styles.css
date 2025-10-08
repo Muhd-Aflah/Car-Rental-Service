@@ -1,16 +1,184 @@
-/* ========== Home Page Styles ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* Hero Section */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   🌟 NAVBAR
+=============================== */
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #fff; /* start white when over hero */
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Base navbar: transparent when at top */
+.navbar-car {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  z-index: 1000;
+}
+
+/* When user scrolls down */
+.navbar-car.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #fff; /* white over hero */
+}
+
+/* When scrolled, links become dark */
+.navbar-car.scrolled .nav-links li a {
+  color: #444;
+}
+
+.nav-links li a:hover {
+  background: #ff9800;
+  color: white;
+}
+
+/* Buttons (Login / Signup) */
+.nav-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.login-btn,
+.signup-btn,
+.btn-primary {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Login button style */
+.login-btn {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.navbar-car.scrolled .login-btn {
+  border-color: #ff9800;
+  color: #ff9800;
+}
+
+/* Signup button style */
+.signup-btn {
+  background: #ff9800;
+  color: #fff;
+}
+.signup-btn:hover {
+  background: #e68900;
+}
+
+/* When scrolled, ensure signup still visible */
+.navbar-car.scrolled .signup-btn {
+  background: #ff9800;
+  color: #fff;
+}
+
+/* Mobile toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #ffffff;
+}
+.navbar-car.scrolled .menu-toggle {
+  color: #4b4242;
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%; /* just under navbar */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(255,255,255,0.98);
+    display: none;
+    padding: 20px 0;
+    z-index: 999;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  /* In mobile, make link colors dark because background is white */
+  .nav-links li a {
+    color: #444;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+
+/* ===============================
+   🌟 HERO SECTION
+=============================== */
 .hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   background: url("/images/home-bg.png") no-repeat center center/cover;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  color: white;
+  /* overflow: hidden; */
   animation: heroZoom 20s ease-in-out infinite alternate;
 }
 
@@ -23,7 +191,7 @@
   }
 }
 
-/* Dark overlay on top of the image */
+/* Dark overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -39,34 +207,35 @@
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   margin-bottom: 25px;
 }
 
-/* Primary button */
-.btn-primary {
-  background-color: #ff8800;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 6px;
+.hero-content button {
+  padding: 12px 28px;
   font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #ff9800;
+  color: #fff;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: #e67300;
+.hero-content button:hover {
+  background: #e68900;
   transform: scale(1.05);
 }
 
-/* Why Choose Us Section */
+/* ===============================
+   🌟 WHY CHOOSE US
+=============================== */
 .why-us {
   padding: 80px 10%;
   text-align: center;
@@ -107,264 +276,9 @@
   color: #555;
 }
 
-/* Footer */
-.footer {
-  background-color: #222;
-  color: #bbb;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.9rem;
-}
-
-.footer p {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .hero-content p {
-    font-size: 1rem;
-  }
-  .btn-primary {
-    padding: 10px 22px;
-    font-size: 0.95rem;
-  }
-}
-
-/* Navbar */
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #000000;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.logo span {
-  color: #232323;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-}
-
-.navbar-car {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid #ffffff;
-  z-index: 1000;
-  box-sizing: border-box;
-}
-
-/* Nav Links (Desktop) */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #444;
-  font-weight: 500;
-  transition: 0.3s;
-  padding: 6px 12px;
-  border-radius: 6px;
-}
-
-.nav-links li a:hover {
-  background: #ff9800;
-  color: white;
-}
-
-/* Buttons */
-.nav-btns {
-  display: flex;
-  gap: 12px;
-}
-
-.login-btn,
-.signup-btn {
-  border: none;
-  padding: 8px 16px;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.login-btn {
-  background: transparent;
-  border: 1px solid #ff9800;
-  color: #ff9800;
-}
-
-.login-btn:hover {
-  background: #ff9800;
-  color: white;
-}
-
-.signup-btn {
-  background: #ff9800;
-  color: white;
-}
-
-.signup-btn:hover {
-  background: #e68900;
-}
-
-/* Mobile Toggle (Hamburger) */
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #090909;
-}
-
-/* ========== RESPONSIVE DESIGN ========== */
-/* Default: Desktop */
-.desktop-only {
-  display: flex;
-  gap: 12px;
-}
-
-.mobile-only {
-  display: none;
-}
-
-/* ========== RESPONSIVE DESIGN ========== */
-@media (max-width: 768px) {
-  /* Show hamburger on mobile */
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #222;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: white;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-    display: none;
-    z-index: 999;
-    text-align: center;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  /* Mobile buttons centered */
-  .mobile-only {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 15px;
-    width: 100%;
-  }
-
-  .mobile-only .login-btn,
-  .mobile-only .signup-btn {
-    width: 80%;
-    max-width: 250px;
-    text-align: center;
-  }
-
-  /* Hide desktop buttons */
-  .desktop-only {
-    display: none !important;
-  }
-}
-
-/* Hero  */
-
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* full height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-
-  /* background: url("/src/assets/car-hero.png") no-repeat center center/cover; */
-}
-
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* crop instead of stretching */
-  object-position: center;
-}
-
-/* Hero Content */
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.hero-content h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem); /* responsive heading */
-  font-weight: bold;
-}
-
-.hero-content p {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  margin: 10px 0 20px;
-}
-
-.hero-content button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: none;
-  background: #ff9800;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero-content button:hover {
-  background: #e68900;
-}
-
-/* Container */
+/* ===============================
+   🌟 BOOKING FORM
+=============================== */
 .booking-container {
   display: flex;
   justify-content: center;
@@ -374,7 +288,6 @@
   padding: 2rem;
 }
 
-/* Form */
 .booking-form {
   background: white;
   padding: 2.5rem;
@@ -382,7 +295,6 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 500px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .booking-form h2 {
@@ -392,7 +304,6 @@
   font-size: 1.8rem;
 }
 
-/* Labels */
 .booking-form label {
   display: block;
   font-weight: 600;
@@ -400,7 +311,6 @@
   color: #444;
 }
 
-/* Inputs & Select */
 .booking-form input,
 .booking-form select {
   width: 100%;
@@ -419,7 +329,6 @@
   box-shadow: 0 0 8px rgba(0, 119, 255, 0.3);
 }
 
-/* Button */
 .booking-form button {
   width: 100%;
   padding: 0.9rem;
@@ -437,7 +346,91 @@
   background: #005fcc;
   transform: translateY(-2px);
 }
-/* Cars page  */
+
+/* ===============================
+   🌟 FOOTER
+=============================== */
+.footer {
+  background-color: #222;
+  color: #bbb;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ===============================
+   🌟 RESPONSIVE DESIGN
+=============================== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    display: none;
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .mobile-only {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .mobile-only .login-btn,
+  .mobile-only .signup-btn {
+    width: 80%;
+    max-width: 250px;
+    text-align: center;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    padding: 10px 22px;
+  }
+}
+/* ---------------------------------
+          Cars page  */
+
+.cars-page {
+  padding-top: 100px;
+}
+.cars-page h2 {
+  text-align: center;
+}
+
 .car-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
