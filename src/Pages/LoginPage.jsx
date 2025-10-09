@@ -8,19 +8,17 @@ export default function LoginPage() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Get users from localStorage
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Find user with same email & password
     const validUser = users.find(
       (u) => u.email === email && u.password === password
     );
 
     if (validUser) {
-      setMessage(`✅ Welcome back, ${validUser.name}!`);
+      setMessage(` Welcome back, ${validUser.name}!`);
       localStorage.setItem("loggedInUser", JSON.stringify(validUser));
     } else {
-      setMessage("❌ Invalid email or password.");
+      setMessage(" Invalid email or password.");
     }
   };
 

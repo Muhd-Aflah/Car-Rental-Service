@@ -9,22 +9,19 @@ export default function SignupPage() {
   const handleSignup = (e) => {
     e.preventDefault();
 
-    // Get users from localStorage or make empty array
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Check if email already exists
     const userExists = users.find((u) => u.email === email);
     if (userExists) {
       setMessage("⚠️ Email already registered!");
       return;
     }
 
-    // Save new user
     const newUser = { name, email, password };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
-    setMessage("✅ Signup successful! You can now login.");
+    setMessage(" Signup successful! You can now login.");
     setName("");
     setEmail("");
     setPassword("");
