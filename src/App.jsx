@@ -7,6 +7,10 @@ import CarsPage from "./Pages/CarsPage";
 import BookingPage from "./Pages/BookingPage";
 import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
+import WishlistPage from "./Pages/WishlistPage";
+import SignupPage from "./Pages/SignupPage";
+import LoginPage from "./Pages/LoginPage";
+
 
 function App() {
   return (
@@ -18,6 +22,8 @@ function App() {
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Analytics />
     </Router>

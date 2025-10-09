@@ -1,28 +1,9 @@
-import React, { useState, useEffect } from "react";
-const [wishlist, setWishlist] = useState([]);
-import carsData from "../data/cars.json";
-import "../styles/styles.css";
-
-export default function WishlistPage() {
-  const [wishlist, setWishlist] = useState([]);
-
-  useEffect(() => {
-    const savedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    setWishlist(savedWishlist);
-  }, []);
-
-  const removeFromWishlist = (id) => {
-    const updated = wishlist.filter((carId) => carId !== id);
-    setWishlist(updated);
-    localStorage.setItem("wishlist", JSON.stringify(updated));
-  };
-
+function WishlistPage({ wishlist, toggleWishlist }) {
   const wishlistCars = carsData.filter((car) => wishlist.includes(car.id));
 
   return (
     <div className="wishlist-page">
       <h2>❤️ My Wishlist</h2>
-
       {wishlistCars.length === 0 ? (
         <p>No cars in your wishlist yet.</p>
       ) : (
@@ -33,9 +14,7 @@ export default function WishlistPage() {
               <h3>{car.name}</h3>
               <p>Type: {car.type}</p>
               <p>Price: ${car.price}/day</p>
-              <button onClick={() => removeFromWishlist(car.id)}>
-                ❌ Remove
-              </button>
+              <button onClick={() => toggleWishlist(car.id)}>❌ Remove</button>
             </div>
           ))}
         </div>
